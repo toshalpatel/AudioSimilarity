@@ -12,17 +12,12 @@ plot(ax1, T1, y1);
 plot(ax2, T2, y2);
 linkaxes(ax3:ax3, 'x');
 linkaxes(ax1:ax3, 'x');
-
 [C1,lag1] = xcorr(T2,T1);
 plot(ax3, lag1/Fs1, C1);
 linkaxes(ax1:ax3,'x');
 T2 = alignsignals(T2,T1);
-
 RMSE = sqrt(mean((T2-T1).^2));
-RMSE
-
 plot(ax3, lag1/Fs1, C1);
-
 grid(ax1, 'on');
 grid(ax2, 'on');
 grid(ax3, 'on');
