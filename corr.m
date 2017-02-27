@@ -17,6 +17,7 @@ plot(ax3, lag1/Fs1, C1);
 linkaxes(ax1:ax3,'x');
 T2 = alignsignals(T2,T1);
 RMSE = sqrt(mean((T2-T1).^2));
+
 plot(ax3, lag1/Fs1, C1);
 grid(ax1, 'on');
 grid(ax2, 'on');
