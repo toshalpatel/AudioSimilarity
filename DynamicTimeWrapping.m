@@ -8,11 +8,7 @@ function [Dist,D,k,w]=dtw(t,r)
 %r is the vector you are testing
 [rows,N]=size(t);
 [rows,M]=size(r);
-%for n=1:N
-%    for m=1:M
-%        d(n,m)=(t(n)-r(m))^2;
-%    end
-%end
+
 d=(repmat(t(:),1,M)-repmat(r(:)',N,1)).^2; %this replaces the nested for loops from above Thanks Georg Schmitz 
 
 D=zeros(size(d));
