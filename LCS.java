@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class LCS {
 	
 	String string1, string2;
-	char[] sequence1, sequence2; //sequence1 is on the column side and sequence2 is on the row side
+	char[] sequence1;
+	char[] sequence2; //sequence1 is on the column side and sequence2 is on the row side
+	private Scanner in;
 	
 	void initialize(){
 		getString();
@@ -16,25 +18,36 @@ public class LCS {
 		sequence1 = new char[m+1];
 		sequence2 = new char[n+1];
 		
-		sequence1 = string1.toCharArray();
-		sequence2 = string2.toCharArray();
+		char[] seq1 = string1.toCharArray();
+		char[] seq2 = string2.toCharArray();
 		
+		for(int i=0; i<=m; i++)
+		{
+			if(i==0)
+				sequence1[i]=' ';
+			else
+				sequence1[i]=seq1[i-1];
+		}
+		for(int i=0; i<=n; i++)
+		{
+			if(i==0)
+				sequence2[i]=' ';
+			else
+				sequence2[i]=seq2[i-1];
+		}
+		
+
 		Cost[][] cost = new Cost[m+1][n+1];
 		
 		for(int i=0;i<=m;i++)
 			for (int j=0; j<=n; j++)
 				cost[i][j] = new Cost();
 		
-		for(int i=0;i<=m;i++)
-			sequence1[i] = ' ';
-		for(int i=0; i<=n; i++)
-			sequence2[i] = ' ';
-		
 		LongestCommonSubsequence(m, n, cost);
 	}
 	
 	void getString(){
-		Scanner in = new Scanner(System.in);
+		in = new Scanner(System.in);
 		System.out.println("Enter the first string:");
 		string1 = in.next();
 		System.out.println("Enter the second string:");
@@ -68,6 +81,7 @@ public class LCS {
 					}
 				}
 			}
+		printSequence(cost, i, j, sequence1);
 	}
 	
 	void printSequence(Cost[][] cost, int i, int j, char[] sequence1){
