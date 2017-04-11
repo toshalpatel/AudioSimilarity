@@ -24,14 +24,14 @@ public class LCS {
 		for(int i=0; i<=m; i++)
 		{
 			if(i==0)
-				sequence1[i]=' ';
+				sequence1[i]='.';
 			else
 				sequence1[i]=seq1[i-1];
 		}
 		for(int i=0; i<=n; i++)
 		{
 			if(i==0)
-				sequence2[i]=' ';
+				sequence2[i]='.';
 			else
 				sequence2[i]=seq2[i-1];
 		}
@@ -60,35 +60,46 @@ public class LCS {
 	
 	void LongestCommonSubsequence(int m, int n, Cost[][] cost){	
 		int i=0, j=0;
-		for(i=0; i<=m; i++)
+		for(i=0; i<=m; i++){
 			for(j=0; j<=n; j++){
-				if(sequence1[i]==' ' || sequence2[j]==' ')
+				if(sequence1[i]=='.' || sequence2[j]=='.')
 				{
 					cost[i][j].value = 0;
 					cost[i][j].direction = 'h';
 				}
 				else
 				{
-					if(sequence1[i]==sequence2[j])
+					if(sequence1[i]!=sequence2[j])
 					{
 						cost[i][j].value = max(cost[i-1][j].value, cost[i][j-1].value);
 						cost[i][j].direction = (cost[i-1][j].value >= cost[i][j-1].value) ? 'u' : 's';
 					}
 					else
 					{
-						cost[i][j].value = cost[i-1][j-1].value++;
+						cost[i][j].value = cost[i-1][j-1].value + 1;
 						cost[i][j].direction = 'd';
 					}
 				}
 			}
-		printSequence(cost, i, j, sequence1);
+		}
+		
+		/*
+		// for printing the cost matrix
+		for(int l=0; l<=m; l++){
+			for(int k=0;k<=n;k++)
+				System.out.print(cost[l][k].value+"-"+cost[l][k].direction+"\t");
+			System.out.print("\n");
+		} 
+		*/
+		
+		printSequence(cost, i-1, j-1, sequence1);
 	}
 	
 	void printSequence(Cost[][] cost, int i, int j, char[] sequence1){
 		if(i==0 || j==0)
 			return;
 		if(cost[i][j].direction=='d'){
-			printSequence(cost, i-1, j, sequence1);
+			printSequence(cost, i-1, j-1, sequence1);
 			System.out.print(sequence1[i]);
 		}
 		else
