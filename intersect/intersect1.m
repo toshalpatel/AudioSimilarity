@@ -8,24 +8,9 @@ t1 = [1/Fs1:1/Fs2:length(y1)/Fs1];
 t2 = [1/Fs2:1/Fs2:length(y2)/Fs2];
 t1 = [1/Fs1:1/Fs1:length(y1)/Fs1];
 ax = subplot(2,1,1)
-
-ax =
-
-  173.0011
-
->> ax = subplot(2,1,1)
-
-ax =
-
-  173.0013
-
->> ax = subplot(2,1,2)
-
-ax =
-
-  174.0013
-
->> plot(ax1,y1,t1);
+ax = subplot(2,1,1)
+ax = subplot(2,1,2)
+plot(ax1,y1,t1);
 Undefined function or variable 'ax1'.
  
 >> ax1 = subplot(2,1,1);
