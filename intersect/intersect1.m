@@ -1,13 +1,13 @@
->> [y1, Fs1] = wavread('t1.wav');
->> [y2, Fs2] = wavread('t2.wav');
->> sound(y1);
->> sound(y1);
->> sound(y1, Fs1);
->> sound(y2, Fs2);
->> t1 = [1/Fs1:1/Fs2:length(y1)/Fs1];
->> t2 = [1/Fs2:1/Fs2:length(y2)/Fs2];
->> t1 = [1/Fs1:1/Fs1:length(y1)/Fs1];
->> ax = subplot(2,1,1)
+[y1, Fs1] = wavread('t1.wav');
+[y2, Fs2] = wavread('t2.wav');
+sound(y1);
+sound(y1);
+sound(y1, Fs1);
+sound(y2, Fs2);
+t1 = [1/Fs1:1/Fs2:length(y1)/Fs1];
+t2 = [1/Fs2:1/Fs2:length(y2)/Fs2];
+t1 = [1/Fs1:1/Fs1:length(y1)/Fs1];
+ax = subplot(2,1,1)
 
 ax =
 
