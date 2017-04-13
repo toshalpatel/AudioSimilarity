@@ -10,27 +10,22 @@ t1 = [1/Fs1:1/Fs1:length(y1)/Fs1];
 ax = subplot(2,1,1)
 ax = subplot(2,1,1)
 ax = subplot(2,1,2)
+ax1 = subplot(2,1,1);
+ax2 = subplot(2,1,2);
 plot(ax1,y1,t1);
-Undefined function or variable 'ax1'.
- 
->> ax1 = subplot(2,1,1);
->> ax2 = subplot(2,1,2);
->> plot(ax1,y1,t1);
->> plot(ax2,y2,t2);
->> plot(ax1,t1,y1);
->> plot(ax2,t2,y2);
->> linkaxes(ax1:ax2,'x');
->> C = intersect(y1,y2);
->> plot(C);
->> plot(ax1,t1,y1);
-Error using plot
-Data must be a single matrix Y or a list of pairs X,Y
- 
->> ax1 = subplot(2,1,1);
->> ax2 = subplot(2,1,2);
->> ax1 = subplot(3,1,1);
->> ax2 = subplot(3,1,2);
->> ax3 = subplot(3,1,3);
+plot(ax2,y2,t2);
+plot(ax1,t1,y1);
+plot(ax2,t2,y2);
+linkaxes(ax1:ax2,'x');
+C = intersect(y1,y2);
+plot(C);
+
+ax1 = subplot(2,1,1);
+ax2 = subplot(2,1,2);
+ax1 = subplot(3,1,1);
+ax2 = subplot(3,1,2);
+ax3 = subplot(3,1,3);
+
 >> plot(ax1,t1,y1);
 >> plot(ax2,t2,y2);
 >> linkaxes(ax1:ax2,'x');
