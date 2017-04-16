@@ -1,2 +1,2 @@
 # AudioSimilarity
-This is a place where I am storing the MATLAB files of assignment on finding audio similarities and storing the similar componenets.
+When two audio files compared, the result is giving the similar part from the two audio files.
